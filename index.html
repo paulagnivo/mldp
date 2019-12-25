@@ -14,7 +14,7 @@
 
 <body>
   <section id="up" class="text-white" style="height: 50vh; align-items: flex-end;">
-    <p class="text-center">Please scroll down to begin <br /><i class="fas fa-arrow-down fa-2x"></i></p>
+    <p class="text-center" id="scrollDown">Something is cooking! Wait for it.</p>
     <div id="sep1"></div>
   </section>
   <section id="intro">
@@ -478,7 +478,7 @@
       </div>
     </div>
   </section>
-  <section id="slide5" style="background:#38A1F3; height:auto">
+  <section id="slide5" class="py-5" style="background:#38A1F3; height:auto">
     <div class="container">
       <div class="row">
         <div class="col-12 shadow-lg py-3 my-3">
@@ -488,7 +488,7 @@
           <iframe width="100%" height="400" src="https://www.youtube.com/embed/P7NfZfiCWgk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
         <div class="col-12 py-3 ">
-          <p class="text-white">The latest revolution in the sphere of education has been brought about by the advent of Educomp smart classes. These are a collection of interactive teaching modules that use visualizations, online quizzes, and motion graphics that are supposed to make school-based learning easier and less monotonous. As the above video showcases, this includes 2D and 3D content, covering K12 subjects that would help teachers to explain difficult and abstract concepts with clarity. Thus Educomp aims to mark a shift from the traditional blackboard-chalk approach to a multimedia-based, touch screen interactivity in the schooling system. 
+          <p class="text-white anim">The latest revolution in the sphere of education has been brought about by the advent of Educomp smart classes. These are a collection of interactive teaching modules that use visualizations, online quizzes, and motion graphics that are supposed to make school-based learning easier and less monotonous. As the above video showcases, this includes 2D and 3D content, covering K12 subjects that would help teachers to explain difficult and abstract concepts with clarity. Thus Educomp aims to mark a shift from the traditional blackboard-chalk approach to a multimedia-based, touch screen interactivity in the schooling system. 
           </p><p class="text-white">Sounds lucrative? All you need is a costly setup, half the blackboard space and a projection system in each classroom of the school and voila! You have transformed masterji’s Vidyalaya to a high tech smart class, with an exponential increase in response from the class, that wants to come to school every day.
           </p><p class="text-white">Educomp is definitely a well-intended step towards personalising learning process and marks a technological change in the most primitive and conservative systems of India, its schools. It is a great example of a trickle-down effect of the rise of new media, that it has begun reaching out to every sphere of life imaginable.
           </p><p class="text-white">But, on the other hand, Educomp is also the face of economic inequality and deprivation. This is because the basic warrant it stands upon is the availability, which is anything but universal for various reasons. These may include the inability to afford, lack of trained teachers, the informal setup that many schools run on, essentially facilities that only a fraction of the Indian schools are capable of ensuring to its pupils.
@@ -531,7 +531,7 @@
   <script>
     var controller = new ScrollMagic.Controller();
     var tl = gsap.timeline();
-    tl.from(".col-12", {
+    tl.from("#intro .col-12", {
       scale: 0.5,
       opacity: 0,
       stagger: 0.5
@@ -548,6 +548,42 @@
       opacity: 0,
       stagger: 0.5
     })
+
+    var tl2 = gsap.timeline();
+    tl2.from("#slide1 .col-12", {
+      scale: 0.5,
+      opacity: 0,
+      stagger: 0.5
+    });
+
+    var tl3 = gsap.timeline();
+    tl3.from("#slide2 .col-12", {
+      scale: 0.5,
+      opacity: 0,
+      stagger: 0.5
+    });
+
+    var tl4 = gsap.timeline();
+    tl4.from("#slide3 .col-12", {
+      scale: 0.5,
+      opacity: 0,
+      stagger: 0.5
+    });
+
+    var tl5 = gsap.timeline();
+    tl5.from("#slide4 .col-12", {
+      scale: 0.5,
+      opacity: 0,
+      stagger: 0.5
+    });
+
+    var tl6 = gsap.timeline();
+    tl6.from("#slide5 .col-12", {
+      scale: 0.5,
+      opacity: 0,
+      stagger: 0.5
+    });
+
     new ScrollMagic.Scene({
       triggerElement: "#up",
       duration: "50%",
@@ -561,6 +597,50 @@
       }).setPin("#intro")
       .setTween(tl)
       .addTo(controller);
+
+      new ScrollMagic.Scene({
+        triggerElement: "#slide1",
+        duration: "50%",
+        triggerHook: 0
+      }).setPin("#slide1")
+      .setTween(tl2)
+      .addTo(controller);
+
+      new ScrollMagic.Scene({
+        triggerElement: "#slide2",
+        duration: "50%",
+        triggerHook: 0
+      }).setPin("#slide2")
+      .setTween(tl3)
+      .addTo(controller);
+
+      new ScrollMagic.Scene({
+        triggerElement: "#slide3",
+        duration: "50%",
+        triggerHook: 0
+      }).setPin("#slide3")
+      .setTween(tl4)
+      .addTo(controller);
+
+      new ScrollMagic.Scene({
+        triggerElement: "#slide4",
+        duration: "50%",
+        triggerHook: 0
+      }).setPin("#slide4")
+      .setTween(tl5)
+      .addTo(controller);
+
+      new ScrollMagic.Scene({
+        triggerElement: "#slide5",
+        duration: "50%",
+        triggerHook: 0
+      }).setPin("#slide5")
+      .setTween(tl6)
+      .addTo(controller);
+
+      window.addEventListener('load', function(){
+        document.querySelector('#scrollDown').innerHTML = 'Please scroll down to begin <br /><i class="fas fa-arrow-down fa-2x"></i>';
+      })
   </script>
   <style>
     section {
